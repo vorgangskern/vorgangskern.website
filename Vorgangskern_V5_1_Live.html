@@ -1,0 +1,1488 @@
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Vorgangskern — Digitale Vorhaben präzise umgesetzt</title>
+  <meta name="description" content="Vorgangskern entwickelt Websites, Software und Automatisierungen für öffentliche Auftraggeber und Unternehmen — präzise, dokumentiert und abnahmefähig.">
+  <meta name="theme-color" content="#1a211d">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://vorgangskern.com/">
+      <style>
+:root{
+  --bg:#141a17;
+  --bg-2:#19211d;
+  --bg-3:#222b26;
+  --panel:#1d2521;
+  --panel-2:#27312b;
+  --paper:#e2e5df;
+  --paper-2:#d7dbd5;
+  --ink:#151a17;
+  --text:#f3f5f2;
+  --muted:#b8c0ba;
+  --muted-2:#8d9790;
+  --sage:#a9bfae;
+  --sage-2:#7f9c89;
+  --brass:#c2b185;
+  --line:rgba(245,248,246,.18);
+  --line-strong:rgba(245,248,246,.31);
+  --dark-line:rgba(17,21,18,.18);
+  --shell:min(1320px,calc(100vw - 64px));
+  --ease:cubic-bezier(.2,.75,.2,1);
+  --radius:6px;
+  --shadow:0 35px 90px rgba(0,0,0,.26);
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;background:var(--bg);overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+body.dialog-open{overflow:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{color:inherit}
+img,svg{display:block;max-width:100%}
+::selection{background:var(--sage);color:var(--ink)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.skip-link{position:fixed;left:20px;top:16px;z-index:9999;background:var(--paper);color:var(--ink);padding:10px 14px;transform:translateY(-160%);transition:transform .2s}
+.skip-link:focus{transform:translateY(0)}
+:focus-visible{outline:2px solid var(--brass);outline-offset:4px}
+
+.scroll-progress{position:fixed;z-index:1200;left:0;right:0;top:0;height:2px;background:transparent;pointer-events:none}
+.scroll-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sage),var(--brass));transform-origin:left}
+
+.site-header{position:fixed;z-index:1000;top:0;left:0;right:0;padding:18px 0;transition:background .35s,border-color .35s,transform .35s}
+.site-header.is-scrolled{background:rgba(20,26,23,.90);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.header-inner{width:var(--shell);margin:auto;height:48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:28px}
+.brand{display:inline-flex;align-items:center;gap:12px;width:max-content;font-size:18px;letter-spacing:-.02em;font-weight:450}
+.brand strong{font-weight:740}
+.brand-mark{width:29px;height:29px;overflow:visible}
+.brand-mark path{fill:none;stroke:currentColor;stroke-width:1.35;stroke-linejoin:round}
+.brand-mark circle{fill:var(--sage);stroke:none}
+.desktop-nav{display:flex;align-items:center;gap:30px}
+.desktop-nav a{position:relative;color:rgba(238,241,237,.68);font-size:13px;letter-spacing:.01em;transition:color .25s}
+.desktop-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-9px;height:1px;background:var(--sage);transition:right .3s var(--ease)}
+.desktop-nav a:hover{color:#fff}
+.desktop-nav a:hover:after{right:0}
+.header-action{justify-self:end;border:1px solid var(--line-strong);padding:10px 14px;display:inline-flex;align-items:center;gap:18px;font-size:12px;letter-spacing:.02em;transition:background .25s,color .25s,border-color .25s}
+.header-action:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.menu-button{display:none;background:none;border:0;width:42px;height:42px;padding:8px;cursor:pointer;justify-self:end}
+.menu-button span{display:block;width:24px;height:1px;background:currentColor;margin:7px auto;transition:transform .3s,opacity .3s}
+.menu-button[aria-expanded="true"] span:first-child{transform:translateY(4px) rotate(45deg)}
+.menu-button[aria-expanded="true"] span:last-child{transform:translateY(-4px) rotate(-45deg)}
+.mobile-nav{position:absolute;left:0;right:0;top:100%;background:rgba(20,26,23,.98);border-bottom:1px solid var(--line);padding:18px 32px 28px}
+.mobile-nav nav{display:grid}
+.mobile-nav a{padding:15px 0;border-bottom:1px solid var(--line);font-size:20px}
+
+.button{appearance:none;border:0;display:inline-flex;align-items:center;justify-content:center;gap:16px;min-height:48px;padding:0 20px;font-size:13px;font-weight:650;letter-spacing:.01em;cursor:pointer;transition:transform .25s var(--ease),background .25s,color .25s,border-color .25s}
+.button:hover{transform:translateY(-2px)}
+.button-primary{background:var(--sage);color:var(--ink)}
+.button-primary:hover{background:#b0c2b5}
+.button-secondary{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.button-secondary:hover{border-color:var(--text);background:rgba(255,255,255,.04)}
+.button-dark{background:var(--ink);color:#fff}
+.button-dark:hover{background:#283029}
+.button-secondary-dark{background:transparent;border:1px solid rgba(17,21,18,.28);color:var(--ink)}
+.button-outline-light{background:transparent;border:1px solid var(--line-strong);color:var(--text)}
+.button-outline-light:hover{background:var(--text);color:var(--ink)}
+.text-button{border:0;background:none;padding:8px 0;cursor:pointer;color:var(--ink);font-size:13px;border-bottom:1px solid rgba(17,21,18,.35)}
+.text-button-light{color:var(--text);border-color:rgba(255,255,255,.35)}
+
+.hero{position:relative;min-height:100svh;overflow:hidden;background:var(--bg);display:flex;align-items:center;padding:132px 0 76px}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 44%,rgba(169,191,174,.13),transparent 32%),linear-gradient(90deg,rgba(255,255,255,.026),transparent 50%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;opacity:.42;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,black 0%,black 74%,transparent 100%);animation:gridDrift 22s linear infinite}
+@keyframes gridDrift{to{background-position:54px 54px}}
+.hero-glow{position:absolute;width:55vw;height:55vw;right:-24vw;top:8%;border-radius:50%;background:radial-gradient(circle,rgba(194,177,133,.13),transparent 67%);filter:blur(30px)}
+.hero-inner{width:var(--shell);margin:auto;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(480px,.88fr);gap:3.2vw;align-items:center;position:relative;z-index:1}
+.hero-copy{padding-top:18px}
+.eyebrow,.section-number{margin:0 0 26px;display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.17em;font-size:10px;font-weight:700;color:var(--muted)}
+.eyebrow span{display:block;width:34px;height:1px;background:var(--sage)}
+.hero-title{margin:0;font-size:clamp(58px,5.65vw,84px);line-height:.93;letter-spacing:-.062em;font-weight:590;max-width:860px}
+.hero-line{display:block;overflow:hidden;padding-bottom:.08em}
+.hero-line>span{display:block;transform:translateY(110%);animation:titleIn .95s .15s var(--ease) forwards}
+.hero-line:nth-child(2)>span{animation-delay:.26s}
+.hero-line-muted{color:#b3bbb5}
+@keyframes titleIn{to{transform:translateY(0)}}
+.hero-lead{font-size:clamp(17px,1.45vw,21px);line-height:1.55;color:var(--muted);max-width:660px;margin:34px 0 0}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.hero-meta{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:70px;padding-top:22px;border-top:1px solid var(--line);max-width:720px}
+.hero-meta p{margin:0;color:#d1d6d2;font-size:12px;line-height:1.55}
+.hero-meta span{display:block;color:var(--muted-2);font-size:9px;text-transform:uppercase;letter-spacing:.16em;margin-bottom:6px}
+
+.hero-system{position:relative;perspective:1200px}
+.system-frame{position:relative;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.022));border:1px solid var(--line);box-shadow:var(--shadow);transform:rotateY(-5deg) rotateX(1.5deg);transition:transform .3s var(--ease);overflow:hidden;min-height:620px}
+.system-frame:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.035) 49%,transparent 63%);transform:translateX(-100%);animation:frameScan 8s ease-in-out infinite}
+@keyframes frameScan{50%,100%{transform:translateX(100%)}}
+.system-topline,.system-footer{height:44px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-bottom:1px solid var(--line);font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#96a199}
+.system-footer{border-top:1px solid var(--line);border-bottom:0;justify-content:flex-start;gap:28px}
+.system-footer span{display:flex;align-items:center;gap:8px}
+.system-footer i{width:5px;height:5px;background:var(--sage);border-radius:50%;box-shadow:0 0 12px rgba(157,181,165,.5)}
+.system-footer span:nth-child(2) i{background:var(--brass)}
+.system-footer span:nth-child(3) i{background:#d0d5d1}
+.system-svg{width:100%;height:auto;padding:8px 0}
+.grid-plane path{fill:none;stroke:rgba(235,242,237,.15);stroke-width:1}
+.grid-plane-a{opacity:.45}.grid-plane-b{opacity:.7}.grid-plane-c{opacity:.38}
+.input-blocks rect,.output-blocks rect{fill:rgba(255,255,255,.035);stroke:rgba(235,242,237,.29);stroke-width:1}
+.input-blocks path,.output-blocks path{fill:none;stroke:rgba(235,242,237,.31);stroke-width:2;stroke-linecap:round}
+.core-ring{fill:rgba(157,181,165,.015);stroke:url(#route);stroke-width:1.6;transform-origin:360px 356px}
+.core-ring-one{animation:coreRotate 20s linear infinite}
+.core-ring-two{animation:coreRotateReverse 14s linear infinite}
+.core-ring-three{animation:corePulse 5s ease-in-out infinite}
+.core-axis{fill:none;stroke:rgba(169,191,174,.25);stroke-width:1}
+.core-dot{fill:var(--sage);filter:url(#soft);animation:dotPulse 3.2s ease-in-out infinite}
+@keyframes coreRotate{to{transform:rotate(360deg)}}
+@keyframes coreRotateReverse{to{transform:rotate(-360deg)}}
+@keyframes corePulse{50%{transform:scale(1.06);opacity:.65}}
+@keyframes dotPulse{50%{r:20px;opacity:.45}}
+.routes path{fill:none;stroke:url(#route);stroke-width:1.8;opacity:.82}
+.data-pulses circle{fill:#eef1ed;filter:url(#soft)}
+.scroll-cue{position:absolute;left:32px;bottom:28px;display:flex;align-items:center;gap:12px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#8d9790;writing-mode:vertical-rl}
+.scroll-cue span{display:block;width:1px;height:58px;background:linear-gradient(to bottom,var(--sage),transparent);animation:scrollLine 2.3s ease-in-out infinite}
+@keyframes scrollLine{50%{transform:scaleY(.45);transform-origin:top}}
+
+.section-shell{width:var(--shell);margin:auto}
+.section-heading{display:grid;grid-template-columns:.42fr 1.08fr .7fr;gap:40px;align-items:end;margin-bottom:72px}
+.section-heading h2,.public-heading h2,.check-heading h2{font-size:clamp(50px,6vw,92px);line-height:.96;letter-spacing:-.058em;font-weight:570;margin:0}
+.section-heading>p:last-child,.public-heading>p:last-child,.check-heading>p:last-child{font-size:17px;line-height:1.55;color:var(--muted);max-width:390px;margin:0 0 7px}
+
+.services{background:var(--bg-2);padding:142px 0 155px;position:relative;border-top:1px solid rgba(255,255,255,.06)}
+.services:after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+.service-interface{display:grid;grid-template-columns:minmax(330px,.72fr) minmax(0,1.28fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);min-height:720px}
+.service-list{border-right:1px solid var(--line)}
+.service-item{width:100%;min-height:138px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--text);display:grid;grid-template-columns:48px 1fr 28px;align-items:center;text-align:left;padding:26px 30px 26px 0;cursor:pointer;transition:background .35s,color .35s,padding .35s var(--ease)}
+.service-item:last-child{border-bottom:0}
+.service-item:hover{background:rgba(255,255,255,.025);padding-left:16px}
+.service-item.is-active{background:var(--paper);color:var(--ink);padding-left:20px}
+.service-index{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:var(--muted-2)}
+.service-item.is-active .service-index{color:#536058}
+.service-name{font-size:clamp(21px,2.1vw,31px);letter-spacing:-.035em;font-weight:500;line-height:1.15}
+.service-arrow{justify-self:end;font-size:17px;opacity:.45;transition:transform .3s}
+.service-item.is-active .service-arrow{transform:rotate(45deg);opacity:1}
+.service-stage{display:grid;grid-template-rows:auto 1fr auto auto;padding:30px 38px 34px;min-width:0}
+.service-stage-head{display:flex;justify-content:space-between;align-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-2)}
+.service-visual{position:relative;min-height:390px;margin:24px 0 26px;overflow:hidden;border:1px solid var(--line);background:#151c19;isolation:isolate}
+.visual-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(circle at center,black,transparent 82%)}
+.visual-web-frame,.visual-software-map,.visual-automation-flow,.visual-data-stack{position:absolute;inset:11%;transition:opacity .55s var(--ease),transform .75s var(--ease)}
+.visual-web-frame{border:1px solid rgba(238,241,237,.32);background:rgba(255,255,255,.025);box-shadow:0 30px 60px rgba(0,0,0,.22);transform:perspective(900px) rotateY(-7deg) rotateX(3deg)}
+.visual-web-bar{height:38px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:7px;padding:0 14px}
+.visual-web-bar i{width:5px;height:5px;border-radius:50%;background:#758078}.visual-web-bar span{margin-left:auto;width:48%;height:4px;background:rgba(255,255,255,.08)}
+.visual-web-nav{height:58px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(157,181,165,.12),transparent 40%)}
+.visual-web-hero{height:49%;margin:20px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(135deg,rgba(157,181,165,.18),rgba(185,168,120,.04));position:relative;overflow:hidden}
+.visual-web-hero:before{content:"";position:absolute;inset:24% 17%;border-left:1px solid var(--sage);border-bottom:1px solid var(--sage);transform:skew(-18deg);opacity:.55}
+.visual-web-lines{display:grid;grid-template-columns:1.2fr .8fr .7fr;gap:12px;margin:0 20px}
+.visual-web-lines i{height:34px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.025)}
+.visual-software-map,.visual-automation-flow,.visual-data-stack{opacity:0;transform:scale(.92)}
+.service-visual[data-service-visual="software"] .visual-web-frame,.service-visual[data-service-visual="automation"] .visual-web-frame,.service-visual[data-service-visual="data"] .visual-web-frame{opacity:0;transform:scale(.88)}
+.service-visual[data-service-visual="software"] .visual-software-map{opacity:1;transform:scale(1)}
+.service-visual[data-service-visual="automation"] .visual-automation-flow{opacity:1;transform:scale(1)}
+.service-visual[data-service-visual="data"] .visual-data-stack{opacity:1;transform:scale(1)}
+.visual-software-map{inset:15%;background:linear-gradient(90deg,rgba(157,181,165,.03),transparent);border:1px solid rgba(255,255,255,.08)}
+.map-node{position:absolute;width:74px;height:74px;border:1px solid rgba(238,241,237,.35);background:#18211d;box-shadow:0 0 0 12px rgba(255,255,255,.015)}
+.map-node:after{content:"";position:absolute;inset:22px;background:var(--sage);opacity:.65}
+.map-node-a{left:8%;top:10%}.map-node-b{left:43%;top:4%}.map-node-c{right:9%;top:38%}.map-node-d{left:22%;bottom:7%}.map-node-e{left:53%;bottom:11%}
+.map-line{position:absolute;height:1px;background:linear-gradient(90deg,var(--sage),rgba(157,181,165,.08));transform-origin:left center}
+.line-a{left:20%;top:25%;width:29%;transform:rotate(-12deg)}.line-b{left:52%;top:22%;width:31%;transform:rotate(35deg)}.line-c{left:27%;bottom:27%;width:31%;transform:rotate(-39deg)}.line-d{left:60%;bottom:31%;width:25%;transform:rotate(-24deg)}
+.visual-automation-flow{display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;gap:15%;inset:20% 10%}
+.visual-automation-flow span{position:relative;z-index:2;aspect-ratio:1;border:1px solid rgba(255,255,255,.28);display:grid;place-items:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em;background:#121816}
+.flow-core{border-color:var(--sage)!important;box-shadow:0 0 60px rgba(157,181,165,.14)}
+.visual-automation-flow i{position:absolute;top:50%;height:1px;background:linear-gradient(90deg,rgba(157,181,165,.1),var(--sage),rgba(157,181,165,.1));overflow:hidden}
+.visual-automation-flow i:after{content:"";position:absolute;width:80px;height:1px;background:#fff;animation:flowMove 2.8s linear infinite}
+.flow-line-one{left:23%;width:28%}.flow-line-two{right:22%;width:28%}.flow-line-two:after{animation-delay:-1.2s}
+@keyframes flowMove{from{transform:translateX(-100px)}to{transform:translateX(420px)}}
+.visual-data-stack{inset:15% 18%}
+.visual-data-stack span{position:absolute;left:8%;right:8%;height:18%;border:1px solid rgba(255,255,255,.22);background:linear-gradient(90deg,rgba(157,181,165,.08),rgba(255,255,255,.02));transform:skewX(-8deg);transition:.5s}
+.visual-data-stack span:nth-child(1){top:4%;left:16%;right:0}.visual-data-stack span:nth-child(2){top:28%;left:8%;right:8%}.visual-data-stack span:nth-child(3){top:52%;left:0;right:16%}.visual-data-stack span:nth-child(4){top:76%;left:12%;right:4%}
+.visual-data-stack i{position:absolute;top:0;bottom:0;width:1px;background:var(--brass);box-shadow:0 0 18px rgba(185,168,120,.5);animation:dataScan 4s ease-in-out infinite}
+@keyframes dataScan{0%,100%{left:8%}50%{left:92%}}
+.service-stage-copy{display:grid;grid-template-columns:1.4fr .7fr;gap:36px;align-items:start;border-top:1px solid var(--line);padding-top:24px}
+.service-stage-copy h3{margin:0 0 12px;font-size:clamp(30px,3.3vw,51px);line-height:1.02;letter-spacing:-.05em;font-weight:540}
+.service-stage-copy p{margin:0;color:var(--muted);max-width:600px;font-size:15px;line-height:1.6}
+.service-stage-copy ul{list-style:none;margin:0;padding:0}
+.service-stage-copy li{padding:8px 0;border-bottom:1px solid var(--line);color:#c9cfca;font-size:12px}
+.inline-action{margin-top:22px;padding:12px 0 0;border:0;border-top:1px solid transparent;background:none;color:var(--sage);justify-self:start;cursor:pointer;font-size:12px;letter-spacing:.02em}
+.inline-action:hover{color:#fff}
+
+.process{background:var(--paper);color:var(--ink);padding:142px 0 110px;position:relative}
+.section-number-dark{color:#59635d}
+.process-intro{display:grid;grid-template-columns:.42fr 1.58fr;gap:40px;align-items:end;margin-bottom:80px}
+.process-intro h2{margin:0;font-size:clamp(54px,6.7vw,105px);line-height:.93;letter-spacing:-.065em;font-weight:570;max-width:980px}
+.process-story{display:grid;grid-template-columns:.78fr 1.22fr;gap:7vw;align-items:start}
+.process-steps{padding-bottom:55vh}
+.process-step{min-height:62vh;padding:18vh 0 10vh 44px;border-left:1px solid var(--dark-line);opacity:.25;transition:opacity .35s,transform .35s;position:relative}
+.process-step:before{content:"";position:absolute;left:-5px;top:calc(18vh + 8px);width:9px;height:9px;border-radius:50%;background:var(--paper);border:1px solid rgba(17,21,18,.48);transition:.35s}
+.process-step.is-active{opacity:1;transform:translateX(8px)}
+.process-step.is-active:before{background:var(--ink);box-shadow:0 0 0 8px rgba(17,21,18,.09)}
+.process-step>span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.14em;color:#626d66}
+.process-step h3{margin:14px 0 18px;font-size:clamp(44px,5vw,76px);line-height:.98;letter-spacing:-.058em;font-weight:560}
+.process-step p{font-size:17px;line-height:1.58;color:#555f58;max-width:470px;margin:0}
+.process-visual-wrap{position:sticky;top:104px;padding-bottom:80px}
+.process-visual{height:calc(100vh - 135px);min-height:610px;max-height:760px;background:var(--ink);color:#fff;border:1px solid rgba(17,21,18,.2);box-shadow:0 45px 100px rgba(25,31,27,.18);display:grid;grid-template-rows:auto 1fr auto;overflow:hidden}
+.process-panel-head{height:54px;border-bottom:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#78847d}
+.process-panel-head strong{color:var(--sage);font-weight:500}
+.process-visual svg{width:100%;height:100%;padding:20px}
+.process-visual svg g{transform-origin:center;transition:opacity .65s var(--ease),transform .8s var(--ease)}
+.process-visual svg rect,.process-visual svg path,.process-visual svg circle{vector-effect:non-scaling-stroke}
+.pv-documents rect,.pv-delivery rect{fill:rgba(255,255,255,.025);stroke:rgba(255,255,255,.28);stroke-width:1.3}
+.pv-documents path{stroke:rgba(255,255,255,.25);fill:none;stroke-width:2;stroke-linecap:round}
+.pv-grid path{stroke:rgba(157,181,165,.22);fill:none;stroke-width:1}.pv-grid circle{fill:var(--sage)}
+.pv-build path{stroke:var(--sage);fill:rgba(157,181,165,.015);stroke-width:1.4}
+.pv-delivery path{stroke:var(--brass);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.process-visual .pv-grid,.process-visual .pv-build,.process-visual .pv-delivery{opacity:0;transform:scale(.87)}
+.process-visual[data-process-visual="1"] .pv-documents{opacity:.08;transform:scale(.8) translate(-80px,30px)}
+.process-visual[data-process-visual="1"] .pv-grid{opacity:1;transform:scale(1)}
+.process-visual[data-process-visual="2"] .pv-documents,.process-visual[data-process-visual="2"] .pv-grid{opacity:.08;transform:scale(.82)}
+.process-visual[data-process-visual="2"] .pv-build{opacity:1;transform:scale(1) rotate(3deg)}
+.process-visual[data-process-visual="3"] .pv-documents,.process-visual[data-process-visual="3"] .pv-grid,.process-visual[data-process-visual="3"] .pv-build{opacity:.04;transform:scale(.78)}
+.process-visual[data-process-visual="3"] .pv-delivery{opacity:1;transform:scale(1)}
+.process-metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.13)}
+.process-metrics div{padding:17px 20px;border-right:1px solid rgba(255,255,255,.13)}
+.process-metrics div:last-child{border-right:0}
+.process-metrics span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#758078;margin-bottom:7px}
+.process-metrics b{font-size:20px;font-weight:500;color:#dce2dd}
+
+.public-sector{background:var(--bg);padding:145px 0 155px;position:relative;overflow:hidden}
+.public-sector:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 0 56%,rgba(157,181,165,.025) 56% 58%,transparent 58%)}
+.public-heading{display:grid;grid-template-columns:.42fr 1.08fr .7fr;gap:40px;align-items:end;margin-bottom:74px;position:relative}
+.public-interface{border-top:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;grid-template-columns:.38fr 1.62fr;min-height:650px;position:relative}
+.public-tabs{border-right:1px solid var(--line);display:flex;flex-direction:column}
+.public-tab{flex:1;min-height:108px;border:0;border-bottom:1px solid var(--line);background:transparent;color:var(--muted);display:flex;align-items:center;gap:18px;padding:20px 24px;text-align:left;cursor:pointer;font-size:14px;transition:background .3s,color .3s,padding .3s}
+.public-tab:last-child{border-bottom:0}
+.public-tab span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;color:#68736c}
+.public-tab:hover{color:#fff;padding-left:30px}
+.public-tab.is-active{background:var(--paper);color:var(--ink);padding-left:30px}
+.public-display{display:grid;grid-template-columns:1fr 1fr;min-width:0}
+.public-diagram{position:relative;min-height:650px;border-right:1px solid var(--line);overflow:hidden;background:linear-gradient(145deg,rgba(255,255,255,.018),transparent)}
+.public-diagram:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(circle,black,transparent 77%)}
+.diagram-axis{position:absolute;background:rgba(255,255,255,.12)}.axis-x{height:1px;left:12%;right:12%;top:50%}.axis-y{width:1px;top:12%;bottom:12%;left:50%}
+.diagram-square{position:absolute;border:1px solid rgba(157,181,165,.28);transform:rotate(45deg);transition:transform .8s var(--ease),inset .8s var(--ease),border-color .4s}
+.square-a{inset:19%}.square-b{inset:30%;border-color:rgba(185,168,120,.35)}.square-c{inset:40%;border-color:rgba(255,255,255,.25)}
+.diagram-target{position:absolute;left:50%;top:50%;width:24px;height:24px;transform:translate(-50%,-50%);border:1px solid var(--sage);display:grid;place-items:center}
+.diagram-target span{width:6px;height:6px;background:var(--sage)}
+.diagram-label{position:absolute;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#727e76}.label-a{left:8%;top:48%}.label-b{right:8%;top:48%}.label-c{left:47%;bottom:7%}
+.public-interface[data-public-mode="privacy"] .square-a{transform:rotate(90deg);inset:23%}.public-interface[data-public-mode="privacy"] .square-b{transform:rotate(0deg);inset:32%}.public-interface[data-public-mode="privacy"] .square-c{transform:rotate(90deg);inset:42%}
+.public-interface[data-public-mode="accessibility"] .square-a{transform:rotate(0deg);inset:16%}.public-interface[data-public-mode="accessibility"] .square-b{transform:rotate(45deg);inset:34%}.public-interface[data-public-mode="accessibility"] .square-c{transform:rotate(0deg);inset:43%}
+.public-interface[data-public-mode="operation"] .square-a{transform:rotate(135deg);inset:22%}.public-interface[data-public-mode="operation"] .square-b{transform:rotate(90deg);inset:31%}.public-interface[data-public-mode="operation"] .square-c{transform:rotate(45deg);inset:41%}
+.public-copy{padding:80px 64px;display:flex;flex-direction:column;justify-content:center}
+.public-kicker{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:var(--sage);margin:0 0 20px}
+.public-copy h3{font-size:clamp(34px,4vw,60px);line-height:1.02;letter-spacing:-.048em;font-weight:540;margin:0 0 24px}
+.public-copy>p:not(.public-kicker){font-size:16px;line-height:1.65;color:var(--muted);margin:0 0 32px;max-width:590px}
+.public-copy ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;max-width:520px}
+.public-copy li{padding:12px 0;border-top:1px solid var(--line);font-size:12px;color:#c3cac5}
+
+.project-check{background:var(--paper);color:var(--ink);padding:142px 0 150px}
+.check-heading{display:grid;grid-template-columns:.42fr 1.08fr .7fr;gap:40px;align-items:end;margin-bottom:72px}
+.check-heading>p:last-child{color:#5b655e}
+.checker{display:grid;grid-template-columns:1.13fr .87fr;border:1px solid var(--dark-line);min-height:680px;background:#e1e4df}
+.checker-form{padding:42px 46px 52px;position:relative;min-width:0}
+.checker-progress{height:2px;background:rgba(17,21,18,.12);margin-bottom:52px}
+.checker-progress span{display:block;width:25%;height:100%;background:var(--ink);transition:width .45s var(--ease)}
+.form-step-head span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#68736c}
+.form-step-head h3{font-size:clamp(38px,4vw,58px);line-height:1;letter-spacing:-.052em;font-weight:560;margin:12px 0 34px}
+.option-grid{display:grid;gap:10px}.option-grid-three{grid-template-columns:repeat(3,1fr)}
+.choice{position:relative;cursor:pointer}.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice>span{display:block;border:1px solid rgba(17,21,18,.19);min-height:148px;padding:24px;background:rgba(255,255,255,.12);transition:background .25s,border-color .25s,transform .25s}
+.choice:hover>span{transform:translateY(-2px);border-color:rgba(17,21,18,.42)}
+.choice input:checked+span{background:var(--ink);border-color:var(--ink);color:#fff}
+.choice b{display:block;font-size:17px;letter-spacing:-.02em;margin-bottom:10px}.choice small{display:block;font-size:12px;line-height:1.5;color:#5f6962}.choice input:checked+span small{color:#aeb7b0}
+.option-list{display:grid;border-top:1px solid var(--dark-line)}
+.choice-line{display:grid;grid-template-columns:1fr 32px;border-bottom:1px solid var(--dark-line);align-items:center}
+.choice-line>span{min-height:92px;border:0;padding:20px 18px;background:transparent}
+.choice-line>i{font-style:normal;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;color:#69736d;margin-right:10px;z-index:2}
+.choice-line input:checked+span{background:var(--ink)}
+.choice-line:has(input:checked){background:var(--ink);color:#fff}.choice-line:has(input:checked)>i{color:var(--sage)}
+.form-step>.button{margin-top:28px}
+.form-nav{display:flex;align-items:center;justify-content:space-between;margin-top:32px}
+.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:grid;gap:8px}.field-wide{grid-column:1/-1}
+.field>span{font-size:11px;color:#4f5952}.field small{font-size:9px;color:#78817c;text-transform:uppercase;letter-spacing:.08em}
+.field input,.field select,.field textarea{width:100%;border:1px solid rgba(17,21,18,.22);border-radius:0;background:rgba(255,255,255,.28);color:var(--ink);padding:14px 15px;outline:none;transition:border-color .2s,background .2s}
+.field textarea{resize:vertical;min-height:110px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink);background:#eef0ed}
+.consent-field{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start}.consent-field input{width:16px;height:16px;margin-top:3px}.consent-field>span{font-size:12px;line-height:1.55;color:#58615b}.consent-field a{text-decoration:underline}
+.honeypot{position:absolute;left:-9999px}
+.form-status{font-size:12px;margin:18px 0 0;min-height:20px;color:#475249}
+.checker-summary{background:#18201c;color:#fff;display:grid;grid-template-rows:auto 1fr auto;position:relative;overflow:hidden}
+.checker-summary:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px;mask-image:linear-gradient(black,transparent)}
+.summary-head{position:relative;z-index:1;height:60px;border-bottom:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:space-between;padding:0 24px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#78847d}
+.summary-head i{font-style:normal;color:var(--sage)}
+.summary-body{position:relative;z-index:1;padding:72px 54px}
+.summary-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase;letter-spacing:.14em;font-size:9px;color:var(--sage);margin:0 0 18px}
+.summary-body h3{font-size:clamp(34px,3.8vw,56px);line-height:1.02;letter-spacing:-.05em;font-weight:540;margin:0 0 18px}
+.summary-body>p:not(.summary-label){color:#9ca69f;font-size:15px;line-height:1.6;margin:0 0 40px}
+.summary-data{margin:0;border-top:1px solid rgba(255,255,255,.13)}
+.summary-data div{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.13)}
+.summary-data dt{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#6f7a73}.summary-data dd{margin:0;font-size:12px;color:#ced4cf;text-align:right}
+.summary-foot{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.13);padding:22px 24px}.summary-foot p{margin:0;font-size:10px;line-height:1.55;color:#707b74}
+
+.contact{position:relative;background:#131a17;padding:145px 0 120px;overflow:hidden}
+.contact-lines{position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 49.8%,rgba(157,181,165,.12) 50%,transparent 50.2%),linear-gradient(65deg,transparent 0 74.8%,rgba(185,168,120,.08) 75%,transparent 75.2%)}
+.contact-shell{display:grid;grid-template-columns:1.2fr .8fr;gap:8vw;position:relative}
+.contact-main h2{font-size:clamp(58px,7.4vw,112px);line-height:.9;letter-spacing:-.068em;font-weight:570;margin:0 0 28px;max-width:850px}
+.contact-main>p:not(.section-number){font-size:17px;line-height:1.65;color:var(--muted);max-width:590px;margin:0 0 54px}
+.contact-mail{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);padding:24px 0;font-size:clamp(22px,2.8vw,38px);letter-spacing:-.035em;transition:color .25s,padding .25s}
+.contact-mail:hover{color:var(--sage);padding-left:12px}
+.contact-details{padding-top:78px;display:grid;align-content:start}
+.contact-details>div{border-top:1px solid var(--line);padding:20px 0}
+.contact-details span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.15em;color:#87928b;margin-bottom:8px}
+.contact-details a,.contact-details p{margin:0;color:#d4d9d5;font-size:14px;line-height:1.6}
+.contact-details .button{margin-top:30px;justify-self:start}
+
+.site-footer{background:#101613;color:#bbc3bd;border-top:1px solid var(--line);padding:44px max(32px,calc((100vw - 1320px)/2)) 26px}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.brand-footer{color:#eef1ed}.footer-top>p{max-width:360px;margin:0;font-size:13px;line-height:1.6;color:#8d9790;text-align:right}
+.footer-links{display:flex;justify-content:space-between;gap:30px;padding-top:22px}.footer-links nav{display:flex;flex-wrap:wrap;gap:20px}.footer-links a,.footer-links p{font-size:10px;color:#87928b;margin:0}.footer-links a:hover{color:#fff}
+
+.guide-launcher{position:fixed;z-index:880;right:22px;bottom:22px;border:1px solid var(--line-strong);background:rgba(20,26,23,.92);backdrop-filter:blur(16px);color:#fff;height:46px;padding:0 15px;display:flex;align-items:center;gap:20px;cursor:pointer;font-size:11px;letter-spacing:.03em;box-shadow:0 18px 45px rgba(0,0,0,.25)}
+.guide-launcher:hover{background:var(--paper);color:var(--ink)}
+.guide-dialog,.consent-dialog{border:0;padding:0;background:transparent;max-width:none;max-height:none;color:inherit}
+.guide-dialog::backdrop,.consent-dialog::backdrop{background:rgba(4,7,6,.78);backdrop-filter:blur(8px)}
+.guide-dialog{margin:0 0 0 auto;width:min(560px,100vw);height:100vh}
+.guide-panel{height:100%;background:var(--paper);color:var(--ink);display:grid;grid-template-rows:auto auto 1fr auto;padding:32px 34px;box-shadow:-40px 0 100px rgba(0,0,0,.35)}
+.guide-head,.consent-head{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:24px;border-bottom:1px solid var(--dark-line)}
+.guide-head span,.consent-head span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#637067}.guide-head h2,.consent-head h2{font-size:42px;letter-spacing:-.05em;font-weight:560;margin:6px 0 0}
+.dialog-close{border:1px solid rgba(17,21,18,.22);background:none;width:38px;height:38px;font-size:23px;line-height:1;cursor:pointer}
+.guide-progress{height:2px;background:rgba(17,21,18,.12);margin:30px 0}.guide-progress span{display:block;height:100%;width:20%;background:var(--ink);transition:width .35s}
+.guide-content{align-self:start}.guide-question{font-size:clamp(30px,5vw,48px);line-height:1.05;letter-spacing:-.045em;margin:0 0 28px;font-weight:540}
+.guide-options{display:grid;border-top:1px solid var(--dark-line)}
+.guide-option{border:0;border-bottom:1px solid var(--dark-line);background:transparent;color:var(--ink);padding:18px 4px;display:flex;justify-content:space-between;text-align:left;cursor:pointer;font-size:15px}
+.guide-option:hover{padding-left:12px;background:rgba(17,21,18,.04)}
+.guide-option span:last-child{color:#68736c}
+.guide-result{align-self:start}.guide-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#617067}.guide-result h3{font-size:42px;line-height:1.03;letter-spacing:-.05em;margin:18px 0}.guide-result>p:not(.guide-label){font-size:15px;line-height:1.65;color:#56615a}.guide-actions{display:flex;align-items:center;gap:24px;margin-top:30px}
+.guide-privacy{align-self:end;border-top:1px solid var(--dark-line);padding-top:18px;margin:0;font-size:10px;color:#68736c}
+
+.consent-banner{position:fixed;z-index:1300;right:22px;bottom:22px;width:min(590px,calc(100vw - 44px));display:block;background:var(--paper);color:var(--ink);padding:24px 26px;border:1px solid rgba(17,21,18,.18);box-shadow:0 28px 90px rgba(0,0,0,.38)}
+.consent-label{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9px!important;text-transform:uppercase;letter-spacing:.14em;color:#647169;margin:0 0 8px!important}.consent-banner h2{font-size:26px;letter-spacing:-.035em;margin:0 0 8px}.consent-banner p{font-size:12px;line-height:1.55;color:#58625b;margin:0;max-width:650px}.consent-actions{display:flex;justify-content:flex-start;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px}
+.consent-dialog{width:min(620px,calc(100vw - 30px));margin:auto}.consent-panel{background:var(--paper);color:var(--ink);padding:30px 32px;box-shadow:var(--shadow)}
+.consent-option{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--dark-line);position:relative}.consent-option h3{margin:0 0 6px;font-size:17px}.consent-option p{margin:0;font-size:12px;line-height:1.5;color:#5a655d}.always-on{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#5f6b63}
+.consent-option input{position:absolute;opacity:0}.switch{width:46px;height:24px;background:#adb4af;position:relative;cursor:pointer}.switch:after{content:"";position:absolute;width:18px;height:18px;background:#fff;left:3px;top:3px;transition:left .25s,background .25s}.consent-option input:checked+.switch{background:var(--ink)}.consent-option input:checked+.switch:after{left:25px;background:var(--sage)}
+.consent-note{font-size:11px;line-height:1.55;color:#626d66;margin:22px 0}.consent-note a{text-decoration:underline}.consent-dialog-actions{display:flex;justify-content:flex-end}
+
+/* Legal pages */
+.legal-page{background:var(--bg);min-height:100vh}.legal-header-spacer{height:96px}.legal-hero{padding:90px 0 70px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--bg-2))}.legal-shell{width:min(980px,calc(100vw - 64px));margin:auto}.legal-hero h1{font-size:clamp(54px,7vw,96px);letter-spacing:-.06em;line-height:.95;font-weight:570;margin:0 0 20px}.legal-hero>div>p:last-child{font-size:17px;color:var(--muted);max-width:650px}.legal-content{padding:74px 0 110px;background:var(--paper);color:var(--ink)}.legal-content article{padding:32px 0;border-bottom:1px solid var(--dark-line)}.legal-content h2{font-size:26px;letter-spacing:-.035em;margin:0 0 16px;font-weight:590}.legal-content h3{font-size:18px;margin:24px 0 8px}.legal-content p,.legal-content li{font-size:15px;line-height:1.7;color:#4d5851}.legal-content a{text-decoration:underline;text-underline-offset:3px}.legal-content ul{padding-left:20px}.legal-note{padding:18px;border-left:2px solid var(--brass);background:rgba(185,168,120,.08)}.legal-content code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:rgba(17,21,18,.06);padding:2px 5px}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.reveal.is-visible{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+@media(max-width:1120px){
+  :root{--shell:min(100% - 44px,1100px)}
+  .desktop-nav{display:none}.menu-button{display:block}.header-inner{grid-template-columns:1fr auto auto}.header-action{justify-self:auto}
+  .hero-inner{grid-template-columns:1fr;gap:60px}.hero{padding-top:150px}.hero-copy{max-width:900px}.hero-system{max-width:820px;margin-left:auto;width:80%}.system-frame{min-height:auto}
+  .section-heading,.public-heading,.check-heading{grid-template-columns:.35fr 1fr}.section-heading>p:last-child,.public-heading>p:last-child,.check-heading>p:last-child{grid-column:2}
+  .service-interface{grid-template-columns:.65fr 1.35fr}.service-item{padding-right:18px}.service-stage{padding:26px}.service-stage-copy{grid-template-columns:1fr}
+  .process-story{grid-template-columns:.8fr 1.2fr;gap:4vw}.process-step{padding-left:28px}.public-display{grid-template-columns:.9fr 1.1fr}.public-copy{padding:54px 36px}
+  .checker{grid-template-columns:1fr .72fr}.option-grid-three{grid-template-columns:1fr}.choice>span{min-height:auto}.summary-body{padding:54px 34px}
+}
+
+@media(max-width:820px){
+  :root{--shell:calc(100vw - 32px)}
+  .site-header{padding:12px 0}.header-inner{height:44px}.header-action{display:none}.brand{font-size:16px}.brand-mark{width:26px;height:26px}
+  .hero{min-height:auto;padding:132px 0 90px}.hero-title{font-size:clamp(54px,15vw,82px)}.hero-lead{font-size:16px}.hero-meta{grid-template-columns:1fr;margin-top:48px}.hero-system{width:100%;max-width:none}.system-frame{transform:none}.scroll-cue{display:none}
+  .section-heading,.public-heading,.check-heading,.process-intro{display:block}.section-heading h2,.public-heading h2,.check-heading h2,.process-intro h2{font-size:clamp(48px,13vw,72px);margin-bottom:22px}.section-heading>p:last-child,.public-heading>p:last-child,.check-heading>p:last-child{max-width:620px}
+  .services,.public-sector,.project-check{padding:100px 0}.section-heading,.public-heading,.check-heading{margin-bottom:48px}
+  .service-interface{display:block;min-height:0;border-top:1px solid var(--line)}.service-list{border-right:0}.service-item{min-height:94px}.service-stage{padding:28px 0 0}.service-visual{min-height:330px}.service-stage-copy{padding-bottom:26px}.inline-action{margin-bottom:24px}
+  .process{padding:100px 0}.process-intro{margin-bottom:50px}.process-story{display:block}.process-steps{padding-bottom:0}.process-step{min-height:0;padding:38px 0 50px 28px;opacity:.5}.process-step:before{top:48px}.process-visual-wrap{position:relative;top:auto;margin-top:20px}.process-visual{height:580px;min-height:0}
+  .public-interface{display:block}.public-tabs{border-right:0;display:grid;grid-template-columns:1fr 1fr}.public-tab{min-height:80px;border-right:1px solid var(--line)}.public-display{display:block}.public-diagram{min-height:420px;border-right:0;border-bottom:1px solid var(--line)}.public-copy{padding:42px 26px 50px}
+  .checker{display:block}.checker-form{padding:32px 22px 44px}.checker-summary{min-height:510px}.field-grid{grid-template-columns:1fr}.field-wide{grid-column:auto}
+  .contact{padding:100px 0}.contact-shell{grid-template-columns:1fr}.contact-details{padding-top:20px}.contact-main h2{font-size:clamp(52px,14vw,84px)}
+  .footer-top,.footer-links{display:block}.footer-top>p{text-align:left;margin-top:24px}.footer-links nav{margin-bottom:18px}
+  .consent-banner{right:12px;bottom:12px;width:calc(100vw - 24px);display:block;padding:22px}.consent-actions{justify-content:flex-start;margin-top:20px}
+}
+
+@media(max-width:520px){
+  .hero-actions{display:grid}.hero-actions .button{width:100%}.hero-meta{gap:16px}.system-topline,.system-footer{font-size:8px}.system-footer{gap:14px;padding:0 10px}.system-frame{min-height:0}
+  .service-item{grid-template-columns:36px 1fr 20px;padding:20px 12px 20px 0}.service-name{font-size:20px}.service-item.is-active{padding-left:10px}.service-stage{padding-top:22px}.service-visual{min-height:280px}.visual-web-frame{inset:10% 7%}.service-stage-copy h3{font-size:34px}
+  .process-visual{height:450px}.process-visual svg{padding:0}.process-metrics div{padding:13px 10px}.process-metrics b{font-size:16px}
+  .public-tabs{grid-template-columns:1fr}.public-tab{border-right:0}.public-diagram{min-height:340px}.public-copy h3{font-size:36px}
+  .checker-form{padding:26px 16px 36px}.form-step-head h3{font-size:40px}.summary-body{padding:44px 24px}.summary-data div{grid-template-columns:1fr;gap:4px}.summary-data dd{text-align:left}.form-nav{gap:16px}.choice-line>span{padding-left:8px}
+  .contact-mail{font-size:21px}.guide-launcher{right:12px;bottom:12px}.guide-panel{padding:24px 20px}.guide-head h2{font-size:36px}.guide-question{font-size:34px}.guide-actions{display:grid}.consent-actions .button{width:100%}.consent-actions .text-button{width:100%;text-align:left}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero-line>span{transform:none}
+}
+.footer-button{appearance:none;border:0;background:none;padding:0;color:#87928b;font-size:10px;cursor:pointer}.footer-button:hover{color:#fff}
+
+/* V5.1 — balanced, brighter dark palette; structure and interaction unchanged */
+:root{
+  --bg:#1a211d;
+  --bg-2:#222b25;
+  --bg-3:#2b352e;
+  --panel:#273029;
+  --panel-2:#303b33;
+  --paper:#e4e7e2;
+  --paper-2:#d9ddd7;
+  --text:#f5f7f5;
+  --muted:#c2cac4;
+  --muted-2:#98a39b;
+  --sage:#afc5b5;
+  --sage-2:#86a08e;
+  --brass:#c7b688;
+  --line:rgba(245,248,246,.20);
+  --line-strong:rgba(245,248,246,.34);
+  --shadow:0 35px 90px rgba(0,0,0,.23);
+}
+.site-header.is-scrolled{background:rgba(26,33,29,.92)}
+.mobile-nav{background:rgba(26,33,29,.985)}
+.hero{background:linear-gradient(135deg,#232d27 0%,var(--bg) 58%,#202923 100%)}
+.hero:before{background:radial-gradient(circle at 78% 44%,rgba(175,197,181,.14),transparent 35%),linear-gradient(90deg,rgba(255,255,255,.03),transparent 54%)}
+.hero-grid{opacity:.42}
+.hero-glow{background:radial-gradient(circle,rgba(199,182,136,.14),transparent 67%)}
+.hero-line-muted{color:#bdc6bf}
+.hero-meta p{color:#d5dbd6}
+.system-frame{background:linear-gradient(180deg,rgba(255,255,255,.052),rgba(255,255,255,.018));box-shadow:0 35px 90px rgba(0,0,0,.20)}
+.system-frame:before{background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.055) 49%,transparent 63%)}
+.system-footer,.system-topline{color:#9da8a0}
+.input-blocks rect,.output-blocks rect{fill:rgba(255,255,255,.04);stroke:rgba(238,244,240,.31)}
+.input-blocks path,.output-blocks path{stroke:rgba(238,244,240,.33)}
+.grid-plane path{stroke:rgba(238,244,240,.16)}
+.routes path{opacity:.84}
+.services{background:linear-gradient(180deg,var(--bg-2),#1e2721)}
+.service-item:hover{background:rgba(255,255,255,.05)}
+.service-visual{background:#202923}
+.map-node,.visual-automation-flow span{background:#222d26}
+.service-stage-copy li{color:#d8ddd9}
+.process-visual,.checker-summary{background:#212a24}
+.process-panel-head{border-bottom-color:rgba(255,255,255,.18)}
+.process-metrics{border-top-color:rgba(255,255,255,.18)}
+.process-metrics div{border-right-color:rgba(255,255,255,.18)}
+.public-sector{background:linear-gradient(180deg,#202923,var(--bg))}
+.public-diagram{background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.01))}
+.public-diagram:before{background-image:linear-gradient(rgba(255,255,255,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.052) 1px,transparent 1px)}
+.public-copy li{color:#d6dcd7}
+.contact{background:linear-gradient(135deg,#202923 0%,#1a211d 72%,#242e28 100%)}
+.contact-details a,.contact-details p{color:#d8ddd9}
+.site-footer{background:#171e1a;color:#c2cac4}
+.footer-links a,.footer-links p,.footer-button{color:#87938b}
+.guide-launcher{background:rgba(26,33,29,.94)}
+@media (prefers-color-scheme:dark){:root{color-scheme:dark}}
+
+</style>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Vorgangskern">
+  <meta property="og:title" content="Vorgangskern — Digitale Vorhaben präzise umgesetzt">
+  <meta property="og:description" content="Websites, Software, Daten und Automatisierung für öffentliche Auftraggeber und Unternehmen.">
+  <meta property="og:image" content="https://vorgangskern.com/assets/og-image.svg">
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"Vorgangskern",
+    "legalName":"Vorgangskern – Elvin Ljaic",
+    "url":"https://vorgangskern.com/",
+    "email":"info@vorgangskern.com",
+    "telephone":"+49 160 7519147",
+    "address":{"@type":"PostalAddress","streetAddress":"Friedenstraße 18","postalCode":"89275","addressLocality":"Elchingen","addressCountry":"DE"},
+    "areaServed":"DE",
+    "description":"Websites, Software, Daten- und Automatisierungslösungen für öffentliche Auftraggeber und Unternehmen."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="#start" aria-label="Vorgangskern Startseite">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M7 11.5 22 3l15 8.5v21L22 41 7 32.5z"/>
+          <path d="M7 11.5 22 20l15-8.5M22 20v21"/>
+          <circle cx="22" cy="20" r="3.2"/>
+        </svg>
+        <span>Vorgangs<strong>kern</strong></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Hauptnavigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#vorgehen">Vorgehen</a>
+        <a href="#oeffentliche-hand">Öffentliche Hand</a>
+        <a href="#pruefung">Projektprüfung</a>
+      </nav>
+      <a class="header-action" href="#pruefung">Ausschreibung senden <span aria-hidden="true">↗</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-nav" id="mobile-nav" hidden>
+      <nav aria-label="Mobile Navigation">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#vorgehen">Vorgehen</a>
+        <a href="#oeffentliche-hand">Öffentliche Hand</a>
+        <a href="#pruefung">Projektprüfung</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="start">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow reveal"><span></span> Software · Web · Automatisierung</p>
+          <h1 class="hero-title">
+            <span class="hero-line"><span>Digitale Vorhaben.</span></span>
+            <span class="hero-line hero-line-muted"><span>Präzise umgesetzt.</span></span>
+          </h1>
+          <p class="hero-lead reveal">Vorgangskern entwickelt digitale Lösungen für öffentliche Auftraggeber und Unternehmen — nachvollziehbar, wartbar und abnahmefähig.</p>
+          <div class="hero-actions reveal">
+            <a class="button button-primary" href="#pruefung">Ausschreibung prüfen</a>
+            <a class="button button-secondary" href="#kontakt">Projekt anfragen <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta reveal" aria-label="Zielgruppen und Arbeitsweise">
+            <p><span>Fokus</span> Kommunen · Länder · öffentliche Unternehmen</p>
+            <p><span>Prinzip</span> Modellunabhängig · menschlich geprüft</p>
+          </div>
+        </div>
+
+        <div class="hero-system" data-hero-system>
+          <div class="system-frame">
+            <div class="system-topline"><span>Vorgangskern / Systemansicht</span><span data-live-clock>00:00:00</span></div>
+            <svg class="system-svg" viewBox="0 0 720 720" role="img" aria-label="Abstrakte Darstellung eines digitalen Prozesses von Anforderungen zu Ergebnissen">
+              <defs>
+                <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#cfd8d1" stop-opacity=".2"/>
+                  <stop offset=".48" stop-color="#9db5a5"/>
+                  <stop offset="1" stop-color="#b9a878"/>
+                </linearGradient>
+                <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+              </defs>
+              <g class="grid-plane grid-plane-a">
+                <path d="M96 146 360 28l264 118-264 118z"/>
+                <path d="M148 123 412 241M201 99 465 217M254 75 518 194M307 51 571 170"/>
+                <path d="M149 170 413 52M202 194 466 76M255 217 519 99M308 241 572 123"/>
+              </g>
+              <g class="grid-plane grid-plane-b">
+                <path d="M96 360 360 242l264 118-264 118z"/>
+                <path d="M148 337 412 455M201 313 465 431M254 289 518 408M307 265 571 384"/>
+                <path d="M149 384 413 266M202 408 466 290M255 431 519 313M308 455 572 337"/>
+              </g>
+              <g class="grid-plane grid-plane-c">
+                <path d="M96 574 360 456l264 118-264 118z"/>
+                <path d="M148 551 412 669M201 527 465 645M254 503 518 622M307 479 571 598"/>
+                <path d="M149 598 413 480M202 622 466 504M255 645 519 527M308 669 572 551"/>
+              </g>
+
+              <g class="input-blocks">
+                <rect x="72" y="166" width="138" height="82" rx="4"/>
+                <path d="M91 189h78M91 207h100M91 225h56"/>
+                <rect x="72" y="300" width="138" height="82" rx="4"/>
+                <path d="M91 323h92M91 341h65M91 359h104"/>
+                <rect x="72" y="434" width="138" height="82" rx="4"/>
+                <path d="M91 457h74M91 475h103M91 493h48"/>
+              </g>
+
+              <g class="core-stack">
+                <path class="core-ring core-ring-one" d="M360 176 516 266v180l-156 90-156-90V266z"/>
+                <path class="core-ring core-ring-two" d="M360 222 476 289v134l-116 67-116-67V289z"/>
+                <path class="core-ring core-ring-three" d="M360 269 435 312v88l-75 43-75-43v-88z"/>
+                <circle cx="360" cy="356" r="14" class="core-dot"/>
+                <path class="core-axis" d="M360 176v360M204 266l312 180M516 266 204 446"/>
+              </g>
+
+              <g class="output-blocks">
+                <rect x="510" y="190" width="138" height="68" rx="4"/>
+                <path d="M530 212h83M530 231h53"/>
+                <rect x="510" y="326" width="138" height="68" rx="4"/>
+                <path d="M530 348h92M530 367h65"/>
+                <rect x="510" y="462" width="138" height="68" rx="4"/>
+                <path d="M530 484h72M530 503h97"/>
+              </g>
+
+              <g class="routes">
+                <path d="M210 207C266 207 280 270 328 302"/>
+                <path d="M210 341C270 341 280 341 325 350"/>
+                <path d="M210 475C268 475 282 420 329 389"/>
+                <path d="M392 302C442 270 458 224 510 224"/>
+                <path d="M397 356C448 356 463 360 510 360"/>
+                <path d="M392 410C440 441 459 496 510 496"/>
+              </g>
+              <g class="data-pulses">
+                <circle r="4"><animateMotion dur="4.8s" repeatCount="indefinite" path="M210 207C266 207 280 270 328 302"/></circle>
+                <circle r="4"><animateMotion dur="5.4s" begin="-2s" repeatCount="indefinite" path="M210 341C270 341 280 341 325 350"/></circle>
+                <circle r="4"><animateMotion dur="5.9s" begin="-1s" repeatCount="indefinite" path="M210 475C268 475 282 420 329 389"/></circle>
+                <circle r="4"><animateMotion dur="4.2s" begin="-1.6s" repeatCount="indefinite" path="M392 302C442 270 458 224 510 224"/></circle>
+                <circle r="4"><animateMotion dur="5s" begin="-.8s" repeatCount="indefinite" path="M397 356C448 356 463 360 510 360"/></circle>
+                <circle r="4"><animateMotion dur="5.7s" begin="-2.6s" repeatCount="indefinite" path="M392 410C440 441 459 496 510 496"/></circle>
+              </g>
+            </svg>
+            <div class="system-footer">
+              <span><i></i> Anforderungen</span>
+              <span><i></i> Verarbeitung</span>
+              <span><i></i> Ergebnis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#leistungen" aria-label="Zu den Leistungen scrollen"><span></span>Scroll</a>
+    </section>
+
+    <section class="services" id="leistungen">
+      <div class="section-shell services-shell">
+        <header class="section-heading reveal">
+          <p class="section-number">01 / Leistungen</p>
+          <h2>Technologie folgt der Aufgabe.</h2>
+          <p>Wählen Sie das Leistungsfeld. Die Systemansicht zeigt, was daraus konkret entsteht.</p>
+        </header>
+
+        <div class="service-interface" data-service-interface>
+          <div class="service-list" role="tablist" aria-label="Leistungsfelder">
+            <button class="service-item is-active" type="button" role="tab" aria-selected="true" data-service="web">
+              <span class="service-index">01</span>
+              <span class="service-name">Websites &amp; Portale</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="service-item" type="button" role="tab" aria-selected="false" data-service="software">
+              <span class="service-index">02</span>
+              <span class="service-name">Software &amp; Webanwendungen</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="service-item" type="button" role="tab" aria-selected="false" data-service="automation">
+              <span class="service-index">03</span>
+              <span class="service-name">KI &amp; Automatisierung</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="service-item" type="button" role="tab" aria-selected="false" data-service="data">
+              <span class="service-index">04</span>
+              <span class="service-name">Dokumente &amp; Daten</span>
+              <span class="service-arrow" aria-hidden="true">↗</span>
+            </button>
+          </div>
+
+          <div class="service-stage" role="tabpanel" tabindex="0" aria-live="polite">
+            <div class="service-stage-head">
+              <p data-service-kicker>Digitale Informationsräume</p>
+              <span data-service-code>VK.WEB / 01</span>
+            </div>
+            <div class="service-visual" data-service-visual="web" aria-hidden="true">
+              <div class="visual-grid"></div>
+              <div class="visual-web-frame">
+                <div class="visual-web-bar"><i></i><i></i><i></i><span></span></div>
+                <div class="visual-web-nav"></div>
+                <div class="visual-web-hero"></div>
+                <div class="visual-web-lines"><i></i><i></i><i></i></div>
+              </div>
+              <div class="visual-software-map">
+                <span class="map-node map-node-a"></span><span class="map-node map-node-b"></span><span class="map-node map-node-c"></span><span class="map-node map-node-d"></span><span class="map-node map-node-e"></span>
+                <i class="map-line line-a"></i><i class="map-line line-b"></i><i class="map-line line-c"></i><i class="map-line line-d"></i>
+              </div>
+              <div class="visual-automation-flow">
+                <span class="flow-source">Eingang</span><span class="flow-core">Logik</span><span class="flow-result">Ausgabe</span>
+                <i class="flow-line-one"></i><i class="flow-line-two"></i>
+              </div>
+              <div class="visual-data-stack">
+                <span></span><span></span><span></span><span></span><i></i>
+              </div>
+            </div>
+            <div class="service-stage-copy">
+              <div>
+                <h3 data-service-title>Informationsangebote, die funktionieren.</h3>
+                <p data-service-text>Individuelle Websites, Projektseiten und Portale — responsiv, pflegbar und barrierebewusst umgesetzt.</p>
+              </div>
+              <ul data-service-list>
+                <li>Informationsarchitektur</li>
+                <li>CMS &amp; Inhaltsmigration</li>
+                <li>Technische Übergabe</li>
+              </ul>
+            </div>
+            <button class="inline-action" type="button" data-service-to-project>Leistung in Projektprüfung übernehmen <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process" id="vorgehen">
+      <div class="section-shell process-shell">
+        <header class="process-intro reveal">
+          <p class="section-number section-number-dark">02 / Vorgehen</p>
+          <h2>Vom Leistungsverzeichnis zur Abnahme.</h2>
+        </header>
+
+        <div class="process-story">
+          <div class="process-steps">
+            <article class="process-step is-active" data-process-step="0">
+              <span>01</span>
+              <h3>Anforderungen</h3>
+              <p>Leistungsbeschreibung, Muss-Kriterien und Abnahmepunkte werden in eine belastbare Arbeitsstruktur übersetzt.</p>
+            </article>
+            <article class="process-step" data-process-step="1">
+              <span>02</span>
+              <h3>Architektur</h3>
+              <p>Technik, Datenflüsse, Zuständigkeiten und Risiken werden vor der Umsetzung nachvollziehbar festgelegt.</p>
+            </article>
+            <article class="process-step" data-process-step="2">
+              <span>03</span>
+              <h3>Umsetzung</h3>
+              <p>Modelle, Automatisierung und klassische Entwicklung werden passend zur Aufgabe kombiniert.</p>
+            </article>
+            <article class="process-step" data-process-step="3">
+              <span>04</span>
+              <h3>Prüfung &amp; Übergabe</h3>
+              <p>Ergebnisse werden getestet, dokumentiert und gegen die vereinbarten Kriterien geprüft.</p>
+            </article>
+          </div>
+
+          <div class="process-visual-wrap">
+            <div class="process-visual" data-process-visual="0">
+              <div class="process-panel-head"><span>Projektstatus</span><strong data-process-label>Anforderungen</strong></div>
+              <svg viewBox="0 0 720 640" aria-hidden="true">
+                <g class="pv-documents">
+                  <rect x="75" y="110" width="190" height="250" rx="4"/>
+                  <path d="M104 150h110M104 178h132M104 206h82M104 260h118M104 288h93M104 316h126"/>
+                  <rect x="126" y="166" width="190" height="250" rx="4"/>
+                  <path d="M155 206h110M155 234h132M155 262h82M155 316h118M155 344h93M155 372h126"/>
+                </g>
+                <g class="pv-grid">
+                  <path d="M142 108h436v420H142z"/>
+                  <path d="M142 192h436M142 276h436M142 360h436M142 444h436M229 108v420M316 108v420M403 108v420M490 108v420"/>
+                  <circle cx="229" cy="192" r="9"/><circle cx="403" cy="276" r="9"/><circle cx="490" cy="444" r="9"/><circle cx="316" cy="360" r="9"/>
+                </g>
+                <g class="pv-build">
+                  <path d="M360 102 545 209v214L360 530 175 423V209z"/>
+                  <path d="M360 162 493 239v154L360 470 227 393V239z"/>
+                  <path d="M360 232 432 274v84l-72 42-72-42v-84z"/>
+                  <path d="M360 102v428M175 209l370 214M545 209 175 423"/>
+                </g>
+                <g class="pv-delivery">
+                  <rect x="96" y="92" width="528" height="456" rx="8"/>
+                  <rect x="130" y="128" width="240" height="38" rx="3"/>
+                  <rect x="130" y="194" width="460" height="94" rx="3"/>
+                  <rect x="130" y="314" width="212" height="168" rx="3"/>
+                  <rect x="368" y="314" width="222" height="168" rx="3"/>
+                  <path d="m392 398 34 32 72-86"/>
+                </g>
+              </svg>
+              <div class="process-metrics">
+                <div><span>Struktur</span><b data-metric-structure>24%</b></div>
+                <div><span>Prüfbarkeit</span><b data-metric-quality>18%</b></div>
+                <div><span>Übergabe</span><b data-metric-delivery>08%</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="public-sector" id="oeffentliche-hand">
+      <div class="section-shell">
+        <header class="public-heading reveal">
+          <p class="section-number">03 / Öffentliche Hand</p>
+          <h2>Öffentliche Aufträge brauchen mehr als eine gute Idee.</h2>
+          <p>Die Umsetzung muss fachlich passen, formal nachvollziehbar sein und im Betrieb bestehen.</p>
+        </header>
+
+        <div class="public-interface" data-public-interface>
+          <div class="public-tabs" role="tablist" aria-label="Anforderungen öffentlicher Auftraggeber">
+            <button class="public-tab is-active" type="button" role="tab" aria-selected="true" data-public="requirements"><span>01</span>Leistungsanforderung</button>
+            <button class="public-tab" type="button" role="tab" aria-selected="false" data-public="privacy"><span>02</span>Datenschutz</button>
+            <button class="public-tab" type="button" role="tab" aria-selected="false" data-public="accessibility"><span>03</span>Barrierefreiheit</button>
+            <button class="public-tab" type="button" role="tab" aria-selected="false" data-public="operation"><span>04</span>Betrieb &amp; Übergabe</button>
+          </div>
+          <div class="public-display" role="tabpanel" tabindex="0">
+            <div class="public-diagram" aria-hidden="true">
+              <div class="diagram-axis axis-x"></div><div class="diagram-axis axis-y"></div>
+              <div class="diagram-square square-a"></div><div class="diagram-square square-b"></div><div class="diagram-square square-c"></div>
+              <div class="diagram-target"><span></span></div>
+              <div class="diagram-label label-a">Anforderung</div><div class="diagram-label label-b">Prüfung</div><div class="diagram-label label-c">Ergebnis</div>
+            </div>
+            <div class="public-copy">
+              <p class="public-kicker" data-public-kicker>Präzise Grundlage</p>
+              <h3 data-public-title>Die Leistung wird an den veröffentlichten Anforderungen ausgerichtet.</h3>
+              <p data-public-text>Muss-Kriterien, Liefergegenstände, Fristen und Abnahmebedingungen werden strukturiert erfasst und während der Umsetzung nachvollziehbar verfolgt.</p>
+              <ul data-public-list>
+                <li>Anforderungsmatrix</li>
+                <li>Versionierte Dokumentation</li>
+                <li>Klare Abnahmepunkte</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="project-check" id="pruefung">
+      <div class="section-shell">
+        <header class="check-heading reveal">
+          <p class="section-number section-number-dark">04 / Projektprüfung</p>
+          <h2>Ausschreibung oder Vorhaben prüfen lassen.</h2>
+          <p>Wenige Angaben genügen für eine strukturierte erste Einordnung.</p>
+        </header>
+
+        <div class="checker" data-checker>
+          <form class="checker-form" id="project-form" novalidate>
+            <div class="checker-progress" aria-hidden="true"><span data-form-progress></span></div>
+            <div class="form-step is-active" data-form-step="0">
+              <div class="form-step-head"><span>Schritt 01</span><h3>Was liegt vor?</h3></div>
+              <fieldset>
+                <legend class="sr-only">Projektstatus auswählen</legend>
+                <div class="option-grid option-grid-three">
+                  <label class="choice"><input type="radio" name="phase" value="Ausschreibung veröffentlicht"><span><b>Ausschreibung</b><small>Veröffentlicht oder in Vorbereitung</small></span></label>
+                  <label class="choice"><input type="radio" name="phase" value="Konkretes Projekt"><span><b>Konkretes Projekt</b><small>Anforderungen sind bereits bekannt</small></span></label>
+                  <label class="choice"><input type="radio" name="phase" value="Erste Idee"><span><b>Erste Idee</b><small>Bedarf soll zunächst geklärt werden</small></span></label>
+                </div>
+              </fieldset>
+              <button class="button button-dark form-next" type="button" data-next>Weiter</button>
+            </div>
+
+            <div class="form-step" data-form-step="1" hidden>
+              <div class="form-step-head"><span>Schritt 02</span><h3>Worum geht es?</h3></div>
+              <fieldset>
+                <legend class="sr-only">Leistungsfeld auswählen</legend>
+                <div class="option-list">
+                  <label class="choice choice-line"><input type="radio" name="service" value="Website oder Portal"><span><b>Website oder Portal</b><small>Auftritt, CMS, Migration, Barrierefreiheit</small></span><i>01</i></label>
+                  <label class="choice choice-line"><input type="radio" name="service" value="Software oder Webanwendung"><span><b>Software oder Webanwendung</b><small>Fachanwendung, Dashboard, Schnittstelle</small></span><i>02</i></label>
+                  <label class="choice choice-line"><input type="radio" name="service" value="KI oder Automatisierung"><span><b>KI oder Automatisierung</b><small>Workflow, Dokumentenlogik, Assistenzsystem</small></span><i>03</i></label>
+                  <label class="choice choice-line"><input type="radio" name="service" value="Dokumente oder Daten"><span><b>Dokumente oder Daten</b><small>OCR, Migration, Klassifikation, Strukturierung</small></span><i>04</i></label>
+                </div>
+              </fieldset>
+              <div class="form-nav"><button class="text-button" type="button" data-prev>Zurück</button><button class="button button-dark" type="button" data-next>Weiter</button></div>
+            </div>
+
+            <div class="form-step" data-form-step="2" hidden>
+              <div class="form-step-head"><span>Schritt 03</span><h3>Rahmendaten</h3></div>
+              <div class="field-grid">
+                <label class="field"><span>Organisation</span><select name="organization"><option value="">Bitte wählen</option><option>Gemeinde</option><option>Stadt</option><option>Landkreis</option><option>Landesbehörde</option><option>Bundesbehörde</option><option>Kommunales Unternehmen</option><option>Öffentliche Einrichtung</option><option>Unternehmen</option><option>Sonstige Organisation</option></select></label>
+                <label class="field"><span>Abgabefrist oder Zieltermin</span><input type="date" name="deadline"></label>
+                <label class="field field-wide"><span>Ausschreibungslink oder Vergabenummer <small>optional</small></span><input type="text" name="reference" placeholder="https://… oder Vergabenummer"></label>
+                <label class="field field-wide"><span>Kurzbeschreibung <small>optional</small></span><textarea name="message" rows="4" placeholder="Worum geht es im Kern?"></textarea></label>
+              </div>
+              <div class="form-nav"><button class="text-button" type="button" data-prev>Zurück</button><button class="button button-dark" type="button" data-next>Weiter</button></div>
+            </div>
+
+            <div class="form-step" data-form-step="3" hidden>
+              <div class="form-step-head"><span>Schritt 04</span><h3>Kontakt</h3></div>
+              <div class="field-grid">
+                <label class="field"><span>Organisation / Behörde</span><input type="text" name="company" autocomplete="organization" required></label>
+                <label class="field"><span>Ansprechpartner</span><input type="text" name="name" autocomplete="name" required></label>
+                <label class="field"><span>Geschäftliche E-Mail</span><input type="email" name="email" autocomplete="email" required></label>
+                <label class="field"><span>Telefon <small>optional</small></span><input type="tel" name="phone" autocomplete="tel"></label>
+                <label class="field field-wide consent-field"><input type="checkbox" name="privacy" required><span>Ich habe die <a href="datenschutz.html">Datenschutzhinweise</a> gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage zu.</span></label>
+                <label class="honeypot" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+              </div>
+              <div class="form-nav"><button class="text-button" type="button" data-prev>Zurück</button><button class="button button-dark" type="submit">Anfrage vorbereiten</button></div>
+              <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+            </div>
+          </form>
+
+          <aside class="checker-summary" aria-live="polite">
+            <div class="summary-head"><span>Projektprofil</span><i data-summary-status>Offen</i></div>
+            <div class="summary-body">
+              <p class="summary-label">Aktuelle Einordnung</p>
+              <h3 data-summary-title>Wählen Sie links die ersten Angaben.</h3>
+              <p data-summary-text>Die Zusammenfassung aktualisiert sich während der Eingabe.</p>
+              <dl class="summary-data">
+                <div><dt>Status</dt><dd data-summary-phase>—</dd></div>
+                <div><dt>Leistungsfeld</dt><dd data-summary-service>—</dd></div>
+                <div><dt>Organisation</dt><dd data-summary-org>—</dd></div>
+                <div><dt>Termin</dt><dd data-summary-deadline>—</dd></div>
+              </dl>
+            </div>
+            <div class="summary-foot">
+              <p>Vertrauliche Unterlagen bitte erst nach Abstimmung über einen geeigneten Übertragungsweg senden.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+      <div class="contact-lines" aria-hidden="true"></div>
+      <div class="section-shell contact-shell">
+        <div class="contact-main reveal">
+          <p class="section-number">05 / Kontakt</p>
+          <h2>Ein konkretes Vorhaben?</h2>
+          <p>Senden Sie die Eckdaten oder den Link zur Ausschreibung. Vorgangskern prüft, ob die Leistung fachlich und organisatorisch passt.</p>
+          <a class="contact-mail" href="mailto:info@vorgangskern.com">info@vorgangskern.com <span>↗</span></a>
+        </div>
+        <div class="contact-details reveal">
+          <div><span>Telefon</span><a href="tel:+491607519147">+49 160 7519147</a></div>
+          <div><span>Standort</span><p>89275 Elchingen · Deutschland</p></div>
+          <div><span>Rechtlicher Betreiber</span><p>Vorgangskern – Elvin Ljaic<br>Einzelunternehmen</p></div>
+          <button class="button button-outline-light" type="button" data-open-guide>Projektlotse starten</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <a class="brand brand-footer" href="#start">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M7 11.5 22 3l15 8.5v21L22 41 7 32.5z"/><path d="M7 11.5 22 20l15-8.5M22 20v21"/><circle cx="22" cy="20" r="3.2"/></svg>
+        <span>Vorgangs<strong>kern</strong></span>
+      </a>
+      <p>Digitale Umsetzung für öffentliche Auftraggeber und Unternehmen.</p>
+    </div>
+    <div class="footer-links">
+      <nav aria-label="Rechtliche Informationen">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="cookies.html">Datenschutz-Einstellungen</a>
+        <a href="nutzungshinweise.html">Nutzungshinweise</a>
+        <a href="barrierefreiheit.html">Barrierefreiheit</a>
+      </nav>
+      <p>© <span data-year></span> Vorgangskern</p>
+    </div>
+  </footer>
+
+  <button class="guide-launcher" type="button" data-open-guide aria-haspopup="dialog"><span>Projektlotse</span><i aria-hidden="true">↗</i></button>
+
+  <dialog class="guide-dialog" data-guide-dialog aria-labelledby="guide-title">
+    <div class="guide-panel">
+      <div class="guide-head">
+        <div><span>Lokale Projektprüfung</span><h2 id="guide-title">Projektlotse</h2></div>
+        <button type="button" class="dialog-close" data-close-guide aria-label="Projektlotse schließen">×</button>
+      </div>
+      <div class="guide-progress"><span data-guide-progress></span></div>
+      <div class="guide-content" data-guide-content>
+        <p class="guide-question" data-guide-question>Womit sollen wir beginnen?</p>
+        <div class="guide-options" data-guide-options></div>
+      </div>
+      <div class="guide-result" data-guide-result hidden>
+        <p class="guide-label">Ihre Zusammenfassung</p>
+        <h3 data-guide-result-title></h3>
+        <p data-guide-result-text></p>
+        <div class="guide-actions">
+          <button class="button button-dark" type="button" data-guide-apply>In Projektprüfung übernehmen</button>
+          <button class="text-button" type="button" data-guide-restart>Neu starten</button>
+        </div>
+      </div>
+      <p class="guide-privacy">Die lokale Projektprüfung übermittelt keine Eingaben an externe KI-Dienste.</p>
+    </div>
+  </dialog>
+
+  <div class="consent-banner" data-consent-banner hidden>
+    <div>
+      <p class="consent-label">Datenschutz-Einstellungen</p>
+      <h2>Keine Werbung. Keine Analyse.</h2>
+      <p>Wir verwenden nur technisch erforderliche Speicherungen. Optional dürfen Komfortfunktionen Ihre Auswahl lokal merken.</p>
+    </div>
+    <div class="consent-actions">
+      <button class="button button-secondary-dark" type="button" data-consent-necessary>Nur erforderlich</button>
+      <button class="button button-primary" type="button" data-consent-comfort>Komfort zulassen</button>
+      <button class="text-button text-button-light" type="button" data-open-consent>Einstellungen</button>
+    </div>
+  </div>
+
+  <dialog class="consent-dialog" data-consent-dialog aria-labelledby="consent-title">
+    <form method="dialog" class="consent-panel">
+      <div class="consent-head">
+        <div><span>Datenschutzcenter</span><h2 id="consent-title">Ihre Auswahl</h2></div>
+        <button class="dialog-close" value="cancel" aria-label="Einstellungen schließen">×</button>
+      </div>
+      <div class="consent-option">
+        <div><h3>Erforderlich</h3><p>Speichert Ihre Datenschutzentscheidung und ermöglicht die Grundfunktionen.</p></div>
+        <span class="always-on">Immer aktiv</span>
+      </div>
+      <label class="consent-option">
+        <div><h3>Komfort</h3><p>Darf Auswahlen im Projektkonfigurator lokal im Browser merken.</p></div>
+        <input type="checkbox" name="preferences" data-consent-preferences>
+        <span class="switch" aria-hidden="true"></span>
+      </label>
+      <p class="consent-note">Aktuell werden keine Analyse-, Marketing- oder externen KI-Dienste geladen. Details finden Sie unter <a href="cookies.html">Cookie- und Speichereinstellungen</a>.</p>
+      <div class="consent-dialog-actions">
+        <button class="button button-secondary-dark" type="button" data-save-consent>Auswahl speichern</button>
+      </div>
+    </form>
+  </dialog>
+<script>
+(() => {
+  'use strict';
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Header, progress, year and clock
+  const header = $('[data-header]');
+  const progress = $('.scroll-progress span');
+  const liveClock = $('[data-live-clock]');
+  const updatePageState = () => {
+    const y = window.scrollY;
+    header?.classList.toggle('is-scrolled', y > 24);
+    if (progress) {
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      progress.style.width = `${Math.min(100, (y / max) * 100)}%`;
+    }
+  };
+  addEventListener('scroll', updatePageState, { passive: true });
+  updatePageState();
+  $$('[data-year]').forEach(el => { el.textContent = String(new Date().getFullYear()); });
+  const updateClock = () => {
+    if (!liveClock) return;
+    liveClock.textContent = new Intl.DateTimeFormat('de-DE', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(new Date());
+  };
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // Mobile navigation
+  const menuButton = $('.menu-button');
+  const mobileNav = $('#mobile-nav');
+  const setMenu = open => {
+    if (!menuButton || !mobileNav) return;
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    mobileNav.hidden = !open;
+  };
+  menuButton?.addEventListener('click', () => setMenu(menuButton.getAttribute('aria-expanded') !== 'true'));
+  $$('#mobile-nav a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+
+  // Reveal animation
+  const reveals = $$('.reveal');
+  if ('IntersectionObserver' in window && !reducedMotion) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(el => revealObserver.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Hero spatial response
+  const heroSystem = $('[data-hero-system]');
+  const systemFrame = heroSystem ? $('.system-frame', heroSystem) : null;
+  if (heroSystem && systemFrame && !reducedMotion && matchMedia('(pointer:fine)').matches) {
+    heroSystem.addEventListener('pointermove', event => {
+      const rect = heroSystem.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      systemFrame.style.transform = `rotateY(${(-5 + x * 5).toFixed(2)}deg) rotateX(${(1.5 - y * 4).toFixed(2)}deg) translate3d(${(x * 5).toFixed(1)}px,${(y * 4).toFixed(1)}px,0)`;
+    });
+    heroSystem.addEventListener('pointerleave', () => {
+      systemFrame.style.transform = '';
+    });
+  }
+
+  // Service explorer
+  const services = {
+    web: {
+      kicker: 'Digitale Informationsräume',
+      code: 'VK.WEB / 01',
+      title: 'Informationsangebote, die funktionieren.',
+      text: 'Individuelle Websites, Projektseiten und Portale — responsiv, pflegbar und barrierebewusst umgesetzt.',
+      list: ['Informationsarchitektur', 'CMS & Inhaltsmigration', 'Technische Übergabe'],
+      project: 'Website oder Portal'
+    },
+    software: {
+      kicker: 'Anwendungen & Schnittstellen',
+      code: 'VK.APP / 02',
+      title: 'Software für klar definierte Aufgaben.',
+      text: 'Webanwendungen, Dashboards und Schnittstellen, die sich an Anforderungen, Rollen und realen Arbeitsabläufen orientieren.',
+      list: ['Fachanwendungen & Dashboards', 'APIs & Systemanbindung', 'Tests & Dokumentation'],
+      project: 'Software oder Webanwendung'
+    },
+    automation: {
+      kicker: 'Wiederkehrende Arbeit reduzieren',
+      code: 'VK.AUTO / 03',
+      title: 'Automatisierung mit kontrollierter Verantwortung.',
+      text: 'KI-Modelle und regelbasierte Logik unterstützen bei Dokumenten, Daten und Abläufen — Ergebnisse bleiben prüfbar.',
+      list: ['Workflow-Automatisierung', 'KI-gestützte Assistenz', 'Menschliche Freigabepunkte'],
+      project: 'KI oder Automatisierung'
+    },
+    data: {
+      kicker: 'Struktur aus Beständen',
+      code: 'VK.DATA / 04',
+      title: 'Dokumente und Daten nutzbar machen.',
+      text: 'OCR, Klassifikation, Migration und strukturierte Aufbereitung für digitale Prozesse und verlässliche Weiterverarbeitung.',
+      list: ['OCR & Extraktion', 'Datenbereinigung & Migration', 'Qualitätssicherung'],
+      project: 'Dokumente oder Daten'
+    }
+  };
+
+  let selectedService = 'web';
+  const serviceVisual = $('[data-service-visual]');
+  const serviceTitle = $('[data-service-title]');
+  const serviceText = $('[data-service-text]');
+  const serviceKicker = $('[data-service-kicker]');
+  const serviceCode = $('[data-service-code]');
+  const serviceList = $('[data-service-list]');
+  const selectService = key => {
+    const data = services[key];
+    if (!data) return;
+    selectedService = key;
+    $$('.service-item').forEach(button => {
+      const active = button.dataset.service === key;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', String(active));
+    });
+    if (serviceVisual) serviceVisual.dataset.serviceVisual = key;
+    if (serviceKicker) serviceKicker.textContent = data.kicker;
+    if (serviceCode) serviceCode.textContent = data.code;
+    if (serviceTitle) serviceTitle.textContent = data.title;
+    if (serviceText) serviceText.textContent = data.text;
+    if (serviceList) serviceList.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
+  };
+  $$('.service-item').forEach(button => button.addEventListener('click', () => selectService(button.dataset.service)));
+
+  // Process scrollytelling
+  const processSteps = $$('[data-process-step]');
+  const processVisual = $('[data-process-visual]');
+  const processLabel = $('[data-process-label]');
+  const metrics = {
+    structure: $('[data-metric-structure]'),
+    quality: $('[data-metric-quality]'),
+    delivery: $('[data-metric-delivery]')
+  };
+  const processData = [
+    { label: 'Anforderungen', structure: '24%', quality: '18%', delivery: '08%' },
+    { label: 'Architektur', structure: '58%', quality: '35%', delivery: '16%' },
+    { label: 'Umsetzung', structure: '84%', quality: '64%', delivery: '42%' },
+    { label: 'Prüfung & Übergabe', structure: '100%', quality: '100%', delivery: '100%' }
+  ];
+  const setProcess = index => {
+    processSteps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+    if (processVisual) processVisual.dataset.processVisual = String(index);
+    const data = processData[index];
+    if (!data) return;
+    if (processLabel) processLabel.textContent = data.label;
+    if (metrics.structure) metrics.structure.textContent = data.structure;
+    if (metrics.quality) metrics.quality.textContent = data.quality;
+    if (metrics.delivery) metrics.delivery.textContent = data.delivery;
+  };
+  if ('IntersectionObserver' in window) {
+    const processObserver = new IntersectionObserver(entries => {
+      const visible = entries.filter(e => e.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setProcess(Number(visible.target.dataset.processStep));
+    }, { threshold: [0.25, 0.5, 0.75], rootMargin: '-18% 0px -32% 0px' });
+    processSteps.forEach(step => processObserver.observe(step));
+  }
+
+  // Public sector explorer
+  const publicContent = {
+    requirements: {
+      kicker: 'Präzise Grundlage',
+      title: 'Die Leistung wird an den veröffentlichten Anforderungen ausgerichtet.',
+      text: 'Muss-Kriterien, Liefergegenstände, Fristen und Abnahmebedingungen werden strukturiert erfasst und während der Umsetzung nachvollziehbar verfolgt.',
+      list: ['Anforderungsmatrix', 'Versionierte Dokumentation', 'Klare Abnahmepunkte']
+    },
+    privacy: {
+      kicker: 'Daten bewusst behandeln',
+      title: 'Datenschutz wird Teil der technischen Entscheidung.',
+      text: 'Datenarten, Verarbeitungswege, Speicherorte und eingesetzte Dienste werden früh betrachtet — nicht erst kurz vor der Übergabe.',
+      list: ['Datenminimierung', 'Dokumentierte Anbieter', 'Geeignete Löschwege']
+    },
+    accessibility: {
+      kicker: 'Zugänglichkeit einplanen',
+      title: 'Barrierefreiheit wird nicht nachträglich aufgesetzt.',
+      text: 'Struktur, Kontraste, Bedienbarkeit, Inhalte und Tests werden bereits im Aufbau der Lösung berücksichtigt.',
+      list: ['Semantische Strukturen', 'Tastaturbedienung', 'Prüfbare Ergebnisse']
+    },
+    operation: {
+      kicker: 'Nach dem Projekt weiter nutzbar',
+      title: 'Übergabe, Betrieb und Weiterentwicklung werden mitgedacht.',
+      text: 'Wartbarkeit, Dokumentation, Zugänge und Verantwortlichkeiten werden so vorbereitet, dass die Lösung nicht am Projektende stehen bleibt.',
+      list: ['Technische Dokumentation', 'Geordnete Übergabe', 'Weiterentwicklung möglich']
+    }
+  };
+  const publicInterface = $('[data-public-interface]');
+  const selectPublic = key => {
+    const data = publicContent[key];
+    if (!data) return;
+    $$('.public-tab').forEach(button => {
+      const active = button.dataset.public === key;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', String(active));
+    });
+    if (publicInterface) publicInterface.dataset.publicMode = key;
+    const kicker = $('[data-public-kicker]');
+    const title = $('[data-public-title]');
+    const text = $('[data-public-text]');
+    const list = $('[data-public-list]');
+    if (kicker) kicker.textContent = data.kicker;
+    if (title) title.textContent = data.title;
+    if (text) text.textContent = data.text;
+    if (list) list.innerHTML = data.list.map(item => `<li>${item}</li>`).join('');
+  };
+  $$('.public-tab').forEach(button => button.addEventListener('click', () => selectPublic(button.dataset.public)));
+
+  // Project checker
+  const projectForm = $('#project-form');
+  const formSteps = $$('[data-form-step]');
+  let currentFormStep = 0;
+  const formProgress = $('[data-form-progress]');
+  const formStatus = $('[data-form-status]');
+  const summary = {
+    status: $('[data-summary-status]'),
+    title: $('[data-summary-title]'),
+    text: $('[data-summary-text]'),
+    phase: $('[data-summary-phase]'),
+    service: $('[data-summary-service]'),
+    org: $('[data-summary-org]'),
+    deadline: $('[data-summary-deadline]')
+  };
+
+  const formDataObject = () => {
+    if (!projectForm) return {};
+    return Object.fromEntries(new FormData(projectForm).entries());
+  };
+  const formatDate = value => {
+    if (!value) return '—';
+    const date = new Date(`${value}T12:00:00`);
+    return Number.isNaN(date.getTime()) ? value : new Intl.DateTimeFormat('de-DE').format(date);
+  };
+  const updateSummary = () => {
+    const data = formDataObject();
+    const phase = data.phase || '—';
+    const service = data.service || '—';
+    const org = data.organization || data.company || '—';
+    const deadline = formatDate(data.deadline);
+    if (summary.phase) summary.phase.textContent = phase;
+    if (summary.service) summary.service.textContent = service;
+    if (summary.org) summary.org.textContent = org;
+    if (summary.deadline) summary.deadline.textContent = deadline;
+    const selectedCount = [data.phase, data.service, data.organization].filter(Boolean).length;
+    if (summary.status) summary.status.textContent = selectedCount >= 2 ? 'Prüfbar' : 'Offen';
+    if (summary.title) summary.title.textContent = selectedCount >= 2 ? `${service} für ${org !== '—' ? org : 'Ihre Organisation'}` : 'Wählen Sie links die ersten Angaben.';
+    if (summary.text) summary.text.textContent = selectedCount >= 2
+      ? `${phase}. ${deadline !== '—' ? `Zieltermin: ${deadline}.` : 'Ein Zieltermin kann ergänzt werden.'} Nach Eingang prüfen wir Leistungsumfang, Fristen und erforderliche Nachweise.`
+      : 'Die Zusammenfassung aktualisiert sich während der Eingabe.';
+    saveFormPreferences();
+  };
+  const validateCurrentStep = () => {
+    if (!projectForm) return false;
+    if (currentFormStep === 0 && !projectForm.elements.phase.value) return 'Bitte wählen Sie, was bereits vorliegt.';
+    if (currentFormStep === 1 && !projectForm.elements.service.value) return 'Bitte wählen Sie ein Leistungsfeld.';
+    if (currentFormStep === 3) {
+      const required = ['company', 'name', 'email', 'privacy'];
+      for (const name of required) {
+        const field = projectForm.elements[name];
+        if (!field || (field.type === 'checkbox' ? !field.checked : !field.value.trim())) return 'Bitte füllen Sie alle Pflichtfelder aus.';
+      }
+      if (!projectForm.elements.email.validity.valid) return 'Bitte prüfen Sie die E-Mail-Adresse.';
+    }
+    return '';
+  };
+  const showFormStep = index => {
+    currentFormStep = Math.max(0, Math.min(formSteps.length - 1, index));
+    formSteps.forEach((step, i) => {
+      const active = i === currentFormStep;
+      step.hidden = !active;
+      step.classList.toggle('is-active', active);
+    });
+    if (formProgress) formProgress.style.width = `${((currentFormStep + 1) / formSteps.length) * 100}%`;
+    if (formStatus) formStatus.textContent = '';
+  };
+  $$('[data-next]').forEach(button => button.addEventListener('click', () => {
+    const error = validateCurrentStep();
+    if (error) {
+      if (formStatus) formStatus.textContent = error;
+      const activeStep = formSteps[currentFormStep];
+      activeStep?.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-5px)' }, { transform: 'translateX(5px)' }, { transform: 'translateX(0)' }], { duration: 280 });
+      return;
+    }
+    showFormStep(currentFormStep + 1);
+  }));
+  $$('[data-prev]').forEach(button => button.addEventListener('click', () => showFormStep(currentFormStep - 1)));
+  projectForm?.addEventListener('input', updateSummary);
+  projectForm?.addEventListener('change', updateSummary);
+
+  const mailtoFromForm = data => {
+    const subject = encodeURIComponent(`Projektanfrage: ${data.service || 'Digitales Vorhaben'} – ${data.company || data.organization || 'Organisation'}`);
+    const body = encodeURIComponent([
+      'Guten Tag,', '',
+      'ich möchte folgendes Vorhaben prüfen lassen:', '',
+      `Organisation: ${data.company || data.organization || '—'}`,
+      `Ansprechpartner: ${data.name || '—'}`,
+      `E-Mail: ${data.email || '—'}`,
+      `Telefon: ${data.phone || '—'}`,
+      `Status: ${data.phase || '—'}`,
+      `Leistungsfeld: ${data.service || '—'}`,
+      `Abgabefrist / Zieltermin: ${formatDate(data.deadline)}`,
+      `Ausschreibungslink / Vergabenummer: ${data.reference || '—'}`, '',
+      'Kurzbeschreibung:', data.message || '—', '',
+      'Bitte melden Sie sich zur weiteren Abstimmung.', ''
+    ].join('\n'));
+    return `mailto:info@vorgangskern.com?subject=${subject}&body=${body}`;
+  };
+
+  projectForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    const error = validateCurrentStep();
+    if (error) {
+      if (formStatus) formStatus.textContent = error;
+      return;
+    }
+    const data = formDataObject();
+    if (data.website) return;
+    if (formStatus) formStatus.textContent = 'Anfrage wird vorbereitet …';
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (!response.ok) throw new Error('Backend nicht konfiguriert');
+      if (formStatus) formStatus.textContent = 'Vielen Dank. Die Anfrage wurde übermittelt.';
+      projectForm.reset();
+      updateSummary();
+      clearFormPreferences();
+    } catch {
+      if (formStatus) formStatus.textContent = 'Ihr E-Mail-Programm wird mit einer vorbereiteten Anfrage geöffnet.';
+      window.location.href = mailtoFromForm(data);
+    }
+  });
+
+  $('[data-service-to-project]')?.addEventListener('click', () => {
+    if (!projectForm) return;
+    projectForm.elements.service.value = services[selectedService].project;
+    updateSummary();
+    showFormStep(2);
+    $('#pruefung')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+
+  // Consent management
+  const consentKey = 'vk-consent-v2';
+  const banner = $('[data-consent-banner]');
+  const consentDialog = $('[data-consent-dialog]');
+  const preferencesToggle = $('[data-consent-preferences]');
+  let consent = null;
+  const readConsent = () => {
+    try { return JSON.parse(localStorage.getItem(consentKey)); } catch { return null; }
+  };
+  const writeConsent = preferences => {
+    consent = { necessary: true, preferences: Boolean(preferences), updatedAt: new Date().toISOString() };
+    localStorage.setItem(consentKey, JSON.stringify(consent));
+    if (banner) banner.hidden = true;
+    if (consentDialog?.open) consentDialog.close();
+    if (!consent.preferences) clearFormPreferences();
+  };
+  consent = readConsent();
+  if (!consent && banner) banner.hidden = false;
+  if (preferencesToggle) preferencesToggle.checked = Boolean(consent?.preferences);
+  $('[data-consent-necessary]')?.addEventListener('click', () => writeConsent(false));
+  $('[data-consent-comfort]')?.addEventListener('click', () => writeConsent(true));
+  $$('[data-open-consent]').forEach(button => button.addEventListener('click', () => {
+    if (preferencesToggle) preferencesToggle.checked = Boolean(readConsent()?.preferences);
+    consentDialog?.showModal();
+  }));
+  $('[data-save-consent]')?.addEventListener('click', () => writeConsent(Boolean(preferencesToggle?.checked)));
+
+  function saveFormPreferences() {
+    const current = readConsent();
+    if (!current?.preferences || !projectForm) return;
+    const data = formDataObject();
+    const safe = { phase: data.phase || '', service: data.service || '', organization: data.organization || '', deadline: data.deadline || '', reference: data.reference || '', message: data.message || '' };
+    localStorage.setItem('vk-project-draft-v1', JSON.stringify(safe));
+  }
+  function restoreFormPreferences() {
+    const current = readConsent();
+    if (!current?.preferences || !projectForm) return;
+    try {
+      const saved = JSON.parse(localStorage.getItem('vk-project-draft-v1'));
+      if (!saved) return;
+      Object.entries(saved).forEach(([name, value]) => {
+        const field = projectForm.elements[name];
+        if (!field || !value) return;
+        if (field instanceof RadioNodeList) field.value = value;
+        else field.value = value;
+      });
+      updateSummary();
+    } catch { /* ignore malformed storage */ }
+  }
+  function clearFormPreferences() { localStorage.removeItem('vk-project-draft-v1'); }
+  restoreFormPreferences();
+
+  // Project guide (local only)
+  const guideDialog = $('[data-guide-dialog]');
+  const guideQuestion = $('[data-guide-question]');
+  const guideOptions = $('[data-guide-options]');
+  const guideProgress = $('[data-guide-progress]');
+  const guideContent = $('[data-guide-content]');
+  const guideResult = $('[data-guide-result]');
+  const guideResultTitle = $('[data-guide-result-title]');
+  const guideResultText = $('[data-guide-result-text]');
+  let guideStep = 0;
+  let guideAnswers = {};
+  const guideFlow = [
+    { key: 'phase', question: 'Womit sollen wir beginnen?', options: [
+      ['Ausschreibung veröffentlicht', 'Ausschreibung'], ['Konkretes Projekt', 'Projekt'], ['Erste Idee', 'Idee']
+    ]},
+    { key: 'service', question: 'Welches Ergebnis wird benötigt?', options: [
+      ['Website oder Portal', 'Website / Portal'], ['Software oder Webanwendung', 'Software / App'], ['KI oder Automatisierung', 'Automatisierung'], ['Dokumente oder Daten', 'Daten / Dokumente']
+    ]},
+    { key: 'organization', question: 'Für welche Organisation?', options: [
+      ['Gemeinde', 'Gemeinde'], ['Stadt', 'Stadt'], ['Landkreis', 'Landkreis'], ['Landesbehörde', 'Land / Behörde'], ['Kommunales Unternehmen', 'Kommunales Unternehmen'], ['Unternehmen', 'Unternehmen']
+    ]}
+  ];
+  const renderGuide = () => {
+    if (!guideQuestion || !guideOptions || !guideProgress || !guideContent || !guideResult) return;
+    if (guideStep >= guideFlow.length) {
+      guideContent.hidden = true;
+      guideResult.hidden = false;
+      const phase = guideAnswers.phase || 'Vorhaben';
+      const service = guideAnswers.service || 'digitale Lösung';
+      const org = guideAnswers.organization || 'Organisation';
+      guideResultTitle.textContent = `${service} für ${org}`;
+      guideResultText.textContent = `${phase}. Die nächsten sinnvollen Angaben sind Leistungsumfang, Termin und — falls vorhanden — Vergabenummer oder Bekanntmachungslink.`;
+      guideProgress.style.width = '100%';
+      return;
+    }
+    guideContent.hidden = false;
+    guideResult.hidden = true;
+    const step = guideFlow[guideStep];
+    guideQuestion.textContent = step.question;
+    guideOptions.innerHTML = '';
+    step.options.forEach(([value, label], index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'guide-option';
+      button.innerHTML = `<span>${label}</span><span>${String(index + 1).padStart(2, '0')} ↗</span>`;
+      button.addEventListener('click', () => {
+        guideAnswers[step.key] = value;
+        guideStep += 1;
+        renderGuide();
+      });
+      guideOptions.append(button);
+    });
+    guideProgress.style.width = `${((guideStep + 1) / (guideFlow.length + 1)) * 100}%`;
+  };
+  const openGuide = () => {
+    guideStep = 0; guideAnswers = {}; renderGuide(); guideDialog?.showModal();
+  };
+  $$('[data-open-guide]').forEach(button => button.addEventListener('click', openGuide));
+  $('[data-close-guide]')?.addEventListener('click', () => guideDialog?.close());
+  $('[data-guide-restart]')?.addEventListener('click', () => { guideStep = 0; guideAnswers = {}; renderGuide(); });
+  $('[data-guide-apply]')?.addEventListener('click', () => {
+    if (projectForm) {
+      if (guideAnswers.phase) projectForm.elements.phase.value = guideAnswers.phase;
+      if (guideAnswers.service) projectForm.elements.service.value = guideAnswers.service;
+      if (guideAnswers.organization) projectForm.elements.organization.value = guideAnswers.organization;
+      updateSummary();
+      showFormStep(2);
+    }
+    guideDialog?.close();
+    $('#pruefung')?.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth' });
+  });
+
+  // Generic dialog body lock
+  $$('dialog').forEach(dialog => {
+    dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+    dialog.addEventListener('cancel', () => document.body.classList.remove('dialog-open'));
+    const originalShowModal = dialog.showModal.bind(dialog);
+    dialog.showModal = () => { document.body.classList.add('dialog-open'); originalShowModal(); };
+    dialog.addEventListener('click', event => {
+      const rect = dialog.getBoundingClientRect();
+      const outside = event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+      if (outside) dialog.close();
+    });
+  });
+
+  if (formSteps.length) showFormStep(0);
+  updateSummary();
+  if ($('[data-service-interface]')) selectService('web');
+  if (publicInterface) selectPublic('requirements');
+})();
+
+</script>
+</body>
+</html>

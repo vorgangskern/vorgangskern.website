@@ -1,0 +1,10 @@
+{
+  "name": "vorgangskern-website",
+  "version": "6.0.0",
+  "private": true,
+  "description": "Website von Vorgangskern – Hybrid V6",
+  "scripts": {
+    "serve": "python3 -m http.server 4173",
+    "check": "node --check assets/app.js && node --check functions/api/contact.js"
+  }
+}

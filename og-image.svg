@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#141a17"/><stop offset="1" stop-color="#222b26"/></linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#e9ede9" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#grid)"/>
+  <g transform="translate(810 95)">
+    <path d="M0 90 165 0l165 90v220L165 400 0 310z" fill="none" stroke="#9db5a5" stroke-opacity=".72" stroke-width="2"/>
+    <path d="M0 90 165 180l165-90M165 180v220" fill="none" stroke="#d9ddd7" stroke-opacity=".55" stroke-width="2"/>
+    <circle cx="165" cy="180" r="18" fill="#9db5a5"/>
+  </g>
+  <text x="80" y="112" fill="#9db5a5" font-family="Arial,sans-serif" font-size="22" letter-spacing="4">VORGANGSKERN</text>
+  <text x="80" y="278" fill="#eef1ed" font-family="Arial,sans-serif" font-size="78" font-weight="600">Digitale Vorhaben.</text>
+  <text x="80" y="370" fill="#9ea6a0" font-family="Arial,sans-serif" font-size="78" font-weight="600">Präzise umgesetzt.</text>
+  <text x="80" y="500" fill="#a7afa9" font-family="Arial,sans-serif" font-size="25">Software · Web · Automatisierung</text>
+</svg>
