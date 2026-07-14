@@ -1,0 +1,3 @@
+Diese Dateien gehören direkt in das Hauptverzeichnis (main) des GitHub-Repositories.
+Beim Upload alle Dateien markieren. Vorhandene Dateien mit gleichem Namen werden ersetzt.
+UPLOAD-HINWEIS.txt kann danach im Repository bleiben oder gelöscht werden.
